@@ -10,9 +10,13 @@ import styles from "./styles.module.scss";
 export function SigInButton() {
   const { data: Session } = useSession();
   console.log(Session);
-  
+
   return Session ? (
-    <button type="button" className={styles.sigInButton} onClick={() => signOut()}>
+    <button
+      type="button"
+      className={styles.sigInButton}
+      onClick={() => signOut()}
+    >
       <FaGithub color="#04D361" />
 
       {Session.user.name}
@@ -20,9 +24,12 @@ export function SigInButton() {
       <FiX color="#737380" className={styles.closeIcon} />
     </button>
   ) : (
-    <button type="button" className={styles.sigInButton} onClick={() => signIn('github')} >
+    <button
+      type="button"
+      className={styles.sigInButton}
+      onClick={() => signIn("github")}
+    >
       <FaGithub color="#EBA417" />
-      
       Sig In with Github
     </button>
   );
